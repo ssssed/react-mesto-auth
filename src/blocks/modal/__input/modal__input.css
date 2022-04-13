@@ -1,0 +1,33 @@
+.modal__input {
+  margin: 48px 0 0;
+  width: 100%;
+  padding-bottom: 11px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 358px;
+}
+
+.modal__input:last-of-type {
+    margin: 27px 0 0;
+    /* padding: 0; */
+}
+
+@media screen and (max-width: 1024px) {
+
+  .modal__input {
+    padding-left: 0;
+    padding-right: 0;
+    width: 238px;
+    margin: 71px 0 0;
+  }
+
+  .modal__input:last-of-type {
+    margin: 27px 0 0;
+    /* padding: 0; */
+}
+}

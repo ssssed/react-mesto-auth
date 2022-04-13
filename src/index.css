@@ -1,0 +1,65 @@
+/* сброс стилей */
+@import url(./vendor/normalize.css);
+/* Подключаю шрифты */
+@import url(./vendor/fonts/fonts.css);
+/* body */
+@import url(./blocks/body/body.css);
+/* page */
+@import url(./blocks/page/page.css);
+/* content */
+@import url(./blocks/content/content.css);
+/* header */
+@import url(./blocks/header/header.css);
+@import url(./blocks/header/__img/header__img.css);
+/* profile */
+@import url(./blocks/profile/profile.css);
+@import url(./blocks/profile/__content/profile__content.css);
+@import url(./blocks/profile/__img/profile__img.css);
+@import url(./blocks/profile/__info/profile__info.css);
+@import url(./blocks/profile/__name/profile__name.css);
+@import url(./blocks/profile/__job/profile__job.css);
+@import url(./blocks/profile/__social/profile__social.css);
+@import url(./blocks/profile/__add/profile__add.css);
+@import url(./blocks/profile/__edit/profile__edit.css);
+@import url(./blocks/profile/__img-container/profile__img-container.css);
+/* elements */
+@import url(./blocks/elements/elements.css);
+/* card */
+@import url(./blocks/card/card.css);
+@import url(./blocks/card/__title/card__title.css);
+@import url(./blocks/card/__img/card__img.css);
+@import url(./blocks/card/__item/card__item.css);
+@import url(./blocks/card/__like/card__like.css);
+@import url(./blocks/card/__like-count/card__like-count.css);
+@import url(./blocks/card/__like/_active/card__like_active.css);
+@import url(./blocks/card/__trash/card__trash.css);
+@import url(./blocks/card/__trash/_hidden/card__trash_hidden.css);
+/* opencard */
+@import url(./blocks/opencard/opencard.css);
+@import url(./blocks/opencard/__img/opencard__img.css);
+@import url(./blocks/opencard/__title/opencard__title.css);
+@import url(./blocks/opencard/__content/opencard__content.css);
+@import url(./blocks/opencard/__close-btn/opencard__close-btn.css);
+/* modal */
+@import url(./blocks/modal/modal.css);
+@import url(./blocks/modal/__container/modal__container.css);
+@import url(./blocks/modal/__close-btn/modal__close-btn.css);
+@import url(./blocks/modal/__inner/modal__inner.css);
+@import url(./blocks/modal/__input/modal__input.css);
+@import url(./blocks/modal/__input/_type/modal__input_type_active.css);
+@import url(./blocks/modal/__input/_type/modal__input_type_error.css);
+@import url(./blocks/modal/__input-error/modal__input-error.css);
+@import url(./blocks/modal/__save/modal__save.css);
+@import url(./blocks/modal/__save/_active/modal__save_active.css);
+@import url(./blocks/modal/__title/modal__title.css);
+/* modaladd */
+@import url(./blocks/modal-add/modal-add.css);
+@import url(./blocks/modal-add/__close-btn/modal-add__close-btn.css);
+@import url(./blocks/modal-add/__inner/modal-add__inner.css);
+@import url(./blocks/modal-add/__input/modal-add__input.css);
+@import url(./blocks/modal/_active/modal_active.css);
+/* modaldelete */
+@import url(./blocks/modal-delete/__submit/modal-delete__submit.css);
+/* footer */
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);

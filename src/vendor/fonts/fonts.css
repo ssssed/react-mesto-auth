@@ -1,0 +1,28 @@
+/* импортирование обычного шрифта */
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url(./Inter-Regular.woff) format("woff"),
+    url(./Inter-Regular.woff2) format("woff2"),
+    url(./Inter-Regular.ttf) format("ttf"),
+    url(./Inter-Regular.svg) format("svg");
+}
+/* импортирование черного шрифта */
+@font-face {
+  font-family: "Inter";
+  font-weight: 900;
+  src: url(./Inter-Black.woff) format("woff"),
+    url(./Inter-Black.woff2) format("woff2"),
+    url(./Inter-Black.ttf) format("ttf"),
+    url(./Inter-Black.svg) format("svg");
+}
+/* импортирование жирного шрифта */
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  src: url(./Inter-Bold.woff) format("woff"),
+    url(./Inter-Bold.woff2) format("woff2"),
+    url(./Inter-Bold.ttf) format("ttf"),
+    url(./Inter-Bold.svg) format("svg");
+
+}

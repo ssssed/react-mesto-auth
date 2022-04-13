@@ -1,0 +1,28 @@
+.page {
+  background-color: black;
+  max-width: 880px;
+  padding: 0;
+  margin: 0 auto;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  background-color: black;
+}
+
+@media screen and (max-width: 1024px) {
+  
+  .body {
+    min-width: 320;
+    max-width: 1024px;
+  }
+  
+  .page {
+    max-width: 1024px;
+    width: 100%;
+    padding: 0;
+  }
+}

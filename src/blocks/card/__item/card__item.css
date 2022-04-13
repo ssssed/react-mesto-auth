@@ -1,0 +1,5 @@
+.card__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 15px 25px 21px;
+}
