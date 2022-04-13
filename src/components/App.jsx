@@ -12,6 +12,7 @@ import EditAvatarPopup from './landing/EditAvatarPopup';
 import AddPlacePopup from './landing/AddPlacePopup';
 import { Route, Routes } from 'react-router-dom';
 import Register from './landing/Register';
+import Login from './landing/Login';
 
 const App = () => {
   const [isEditProfilePopupOpen, setOpenedEditProfilePopup] =
@@ -130,7 +131,7 @@ const App = () => {
           }
         />
         <Route path='/sing-up' element={<Register />} />
-        <Route path='/sing-in' />
+        <Route path='/sing-in' element={<Login />} />
       </Routes>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>
