@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './landing/Header';
 import Main from './landing/Main';
 import Footer from './landing/Footer';
@@ -13,16 +13,16 @@ import AddPlacePopup from './landing/AddPlacePopup';
 import { Route, Routes } from 'react-router-dom';
 import Register from './landing/Register';
 import Login from './landing/Login';
+import ProtectedRoute from '../hoc/ProtectRoute';
 
 const App = () => {
-  const [isEditProfilePopupOpen, setOpenedEditProfilePopup] =
-    React.useState(false);
-  const [isAddPlacePopupOpen, setOpenedAddPlacePopup] = React.useState(false);
-  const [isEditAvatarPopupOpen, setOpenedEditAvatarPopup] =
-    React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(null);
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [cards, setCards] = React.useState([]);
+  const [isEditProfilePopupOpen, setOpenedEditProfilePopup] = useState(false);
+  const [isAddPlacePopupOpen, setOpenedAddPlacePopup] = useState(false);
+  const [isEditAvatarPopupOpen, setOpenedEditAvatarPopup] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
+  const [isLogin, setLogin] = useState(false);
 
   function handleEditProfileClick() {
     setOpenedEditProfilePopup(true);
@@ -86,7 +86,7 @@ const App = () => {
     closeAllPopups();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     Promise.all([api.getCards(), api.renderProfile()])
       .then(([card, userData]) => {
         setCards(card);
@@ -116,18 +116,23 @@ const App = () => {
         <Route
           path='/'
           element={
-            <>
-              <Main
-                onEditProfile={handleEditProfileClick}
-                onEditAvatar={handleEditAvatarClick}
-                onAddPlace={handleAddPlaceClick}
-                card={setSelectedCard}
-                cards={cards}
-                onCardLike={handleCardLike}
-                onCardDelete={handleCardDelete}
-              />
-              <Footer />
-            </>
+            <ProtectedRoute
+              isLogin={isLogin}
+              children={
+                <>
+                  <Main
+                    onEditProfile={handleEditProfileClick}
+                    onEditAvatar={handleEditAvatarClick}
+                    onAddPlace={handleAddPlaceClick}
+                    card={setSelectedCard}
+                    cards={cards}
+                    onCardLike={handleCardLike}
+                    onCardDelete={handleCardDelete}
+                  />
+                  <Footer />
+                </>
+              }
+            ></ProtectedRoute>
           }
         />
         <Route path='/sing-up' element={<Register />} />

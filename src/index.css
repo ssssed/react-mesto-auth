@@ -11,6 +11,7 @@
 /* header */
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__img/header__img.css);
+@import url(./blocks/header/__link/header__link.css);
 /* profile */
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__content/profile__content.css);
@@ -71,3 +72,4 @@
 @import url(./blocks/register/__input/register__input.css);
 @import url(./blocks/register/__submit/register__submit.css);
 @import url(./blocks/register/__text/register__text.css);
+@import url(./blocks/register/__link/register__link.css);

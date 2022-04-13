@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   return (
@@ -15,9 +16,9 @@ const Register = () => {
           <button className='register__submit'>Зарегистрироваться</button>
           <p className='register__text'>
             Уже зарегистрированны?{' '}
-            <a href='' className='register__link'>
+            <Link to='/sing-in' className='register__link'>
               Войти
-            </a>
+            </Link>
           </p>
         </div>
       </form>
