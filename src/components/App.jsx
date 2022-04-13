@@ -10,6 +10,8 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './landing/EditProfilePopup';
 import EditAvatarPopup from './landing/EditAvatarPopup';
 import AddPlacePopup from './landing/AddPlacePopup';
+import { Route, Routes } from 'react-router-dom';
+import Register from './landing/Register';
 
 const App = () => {
   const [isEditProfilePopupOpen, setOpenedEditProfilePopup] =
@@ -109,16 +111,27 @@ const App = () => {
         onClose={closeAllPopups}
         onUpdateAvatar={handleUpdateAvatar}
       />
-      <Main
-        onEditProfile={handleEditProfileClick}
-        onEditAvatar={handleEditAvatarClick}
-        onAddPlace={handleAddPlaceClick}
-        card={setSelectedCard}
-        cards={cards}
-        onCardLike={handleCardLike}
-        onCardDelete={handleCardDelete}
-      />
-      <Footer />
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Main
+                onEditProfile={handleEditProfileClick}
+                onEditAvatar={handleEditAvatarClick}
+                onAddPlace={handleAddPlaceClick}
+                card={setSelectedCard}
+                cards={cards}
+                onCardLike={handleCardLike}
+                onCardDelete={handleCardDelete}
+              />
+              <Footer />
+            </>
+          }
+        />
+        <Route path='/sing-up' element={<Register />} />
+        <Route path='/sing-in' />
+      </Routes>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>
   );

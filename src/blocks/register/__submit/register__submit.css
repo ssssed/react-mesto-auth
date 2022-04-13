@@ -1,0 +1,22 @@
+.register__submit {
+  margin: 230px 0 0;
+  width: 100%;
+  max-width: 358px;
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 2px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .register__submit {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

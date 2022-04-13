@@ -1,0 +1,18 @@
+.register__input {
+  margin: 0 0 30px;
+  padding-bottom: 13px;
+  max-width: 358px;
+  width: 100%;
+  background-color: black;
+  color: #cccccc;
+  border: 0;
+  border-bottom: 1px solid #cccccc;
+}
+
+.register__input:focus {
+  outline: 0;
+}
+
+.register__input:last-of-type {
+  margin: 0;
+}
