@@ -49,7 +49,7 @@ const Register = ({ setOpen, setError, handleError }) => {
           <button className='register__submit'>Зарегистрироваться</button>
           <p className='register__text'>
             Уже зарегистрированны?{' '}
-            <Link to='/sing-in' className='register__link'>
+            <Link to='/sign-in' className='register__link'>
               Войти
             </Link>
           </p>
