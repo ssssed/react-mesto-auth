@@ -9,9 +9,7 @@ const Header = ({ isLogin, setLogin }) => {
   const location = useLocation();
   const [email, setEmail] = useState('');
   const [isOpenBurger, setOpenBurger] = useState(false);
-  const [isBurger, setBurger] = useState(false);
   const navigate = useNavigate();
-  console.log(window.innerWidth);
   useEffect(() => {
     isLogin &&
       getContent(localStorage.getItem('jwt')).then((res) =>
