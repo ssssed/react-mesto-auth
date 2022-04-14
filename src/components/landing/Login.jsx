@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authorize } from '../../utils/Auth';
 
-const Login = ({ setLogin }) => {
+const Login = ({ setLogin, handleError }) => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLogin(true);
-    authorize(email, password).then((res) =>
-      res.token ? navigate('/') : console.error(res)
-    );
+    authorize(email, password)
+      .then((res) => {
+        if (res.token) {
+          setLogin(true);
+          navigate('/');
+        } else handleError();
+      })
+      .catch(() => handleError());
   };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

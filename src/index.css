@@ -56,6 +56,9 @@
 @import url(./blocks/modal/__save/modal__save.css);
 @import url(./blocks/modal/__save/_active/modal__save_active.css);
 @import url(./blocks/modal/__title/modal__title.css);
+@import url(./blocks/modal/__img/modal__img.css);
+/* popup */
+@import url(./blocks/popup/__title/popup__title.css);
 /* modaladd */
 @import url(./blocks/modal-add/modal-add.css);
 @import url(./blocks/modal-add/__close-btn/modal-add__close-btn.css);

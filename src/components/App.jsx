@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Header from './landing/Header';
 import Main from './landing/Main';
 import Footer from './landing/Footer';
-import PopupWithForm from './landing/PopupWithForm';
 import ImagePopup from './landing/ImagePopup';
 import api from '../utils/Api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
@@ -14,6 +13,7 @@ import { useNavigate, Route, Routes } from 'react-router-dom';
 import Register from './landing/Register';
 import Login from './landing/Login';
 import ProtectedRoute from '../hoc/ProtectRoute';
+import InfoTooltip from './landing/InfoTooltip';
 
 const App = () => {
   const [isEditProfilePopupOpen, setOpenedEditProfilePopup] = useState(false);
@@ -22,6 +22,8 @@ const App = () => {
   const [selectedCard, setSelectedCard] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
+  const [isInfoTooltipPopupOpen, setOpenedInfoTooltip] = useState(false);
+  const [isError, setError] = useState(false);
   const [isLogin, setLogin] = useState(false);
   const navigate = useNavigate();
 
@@ -41,6 +43,7 @@ const App = () => {
     setOpenedEditProfilePopup(false);
     setOpenedAddPlacePopup(false);
     setOpenedEditAvatarPopup(false);
+    setOpenedInfoTooltip(false);
     setSelectedCard(null);
   }
 
@@ -86,10 +89,18 @@ const App = () => {
       .catch((er) => console.error(er));
     closeAllPopups();
   };
+
+  const handleError = () => {
+    setOpenedInfoTooltip(true);
+    setError(true);
+    localStorage.removeItem('jwt');
+  };
+
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (token) {
       setLogin(true);
+      setError(false);
       navigate('/');
     }
     Promise.all([api.getCards(), api.renderProfile()])
@@ -117,6 +128,11 @@ const App = () => {
         onClose={closeAllPopups}
         onUpdateAvatar={handleUpdateAvatar}
       />
+      <InfoTooltip
+        isOpen={isInfoTooltipPopupOpen}
+        onClose={closeAllPopups}
+        isError={isError}
+      />
       <Routes>
         <Route
           path='/'
@@ -140,8 +156,20 @@ const App = () => {
             ></ProtectedRoute>
           }
         />
-        <Route path='/sign-up' element={<Register setLogin={setLogin} />} />
-        <Route path='/sign-in' element={<Login setLogin={setLogin} />} />
+        <Route
+          path='/sign-up'
+          element={
+            <Register
+              setOpen={setOpenedInfoTooltip}
+              setError={setError}
+              handleError={handleError}
+            />
+          }
+        />
+        <Route
+          path='/sign-in'
+          element={<Login setLogin={setLogin} handleError={handleError} />}
+        />
       </Routes>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>

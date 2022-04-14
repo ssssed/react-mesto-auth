@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { getContent } from '../../utils/Auth';
 
@@ -12,7 +12,7 @@ const Header = ({ isLogin, setLogin }) => {
       getContent(localStorage.getItem('jwt')).then((res) =>
         setEmail(res.data?.email)
       );
-  }, [location]);
+  }, [location, isLogin]);
   const logOut = () => {
     localStorage.removeItem('jwt');
     setEmail('');

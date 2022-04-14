@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../utils/Auth';
 
-const Register = ({ setLogin }) => {
+const Register = ({ setOpen, setError, handleError }) => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    console.log(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    register(email, password).then((res) =>
-      res.data.email ? navigate('/sign-in') : console.error(res)
-    );
+    register(email, password)
+      .then((res) => {
+        if (res.data.email) {
+          setOpen(true);
+          setError(false);
+          navigate('/sign-in');
+        }
+      })
+      .catch(() => handleError());
   };
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
