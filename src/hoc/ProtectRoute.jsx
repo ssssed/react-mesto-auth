@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ isLogin, children }) => {
-  return isLogin ? React.render(children) : <Navigate to='/sing-in' />;
+  return isLogin ? children : <Navigate to='/sign-in' />;
 };
 
 export default ProtectedRoute;

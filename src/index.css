@@ -12,6 +12,9 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__img/header__img.css);
 @import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/__info/header__info.css);
+@import url(./blocks/header/__email/header__email.css);
+@import url(./blocks/header/__link/_active/header__link_active.css);
 /* profile */
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__content/profile__content.css);

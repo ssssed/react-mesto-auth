@@ -10,7 +10,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import EditProfilePopup from './landing/EditProfilePopup';
 import EditAvatarPopup from './landing/EditAvatarPopup';
 import AddPlacePopup from './landing/AddPlacePopup';
-import { Route, Routes } from 'react-router-dom';
+import { useNavigate, Route, Routes } from 'react-router-dom';
 import Register from './landing/Register';
 import Login from './landing/Login';
 import ProtectedRoute from '../hoc/ProtectRoute';
@@ -23,6 +23,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
   const [isLogin, setLogin] = useState(false);
+  const navigate = useNavigate();
 
   function handleEditProfileClick() {
     setOpenedEditProfilePopup(true);
@@ -85,8 +86,12 @@ const App = () => {
       .catch((er) => console.error(er));
     closeAllPopups();
   };
-
   useEffect(() => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      setLogin(true);
+      navigate('/');
+    }
     Promise.all([api.getCards(), api.renderProfile()])
       .then(([card, userData]) => {
         setCards(card);
@@ -96,7 +101,7 @@ const App = () => {
   }, []);
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Header />
+      <Header isLogin={isLogin} setLogin={setLogin} />
       <EditProfilePopup
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
@@ -135,8 +140,8 @@ const App = () => {
             ></ProtectedRoute>
           }
         />
-        <Route path='/sing-up' element={<Register />} />
-        <Route path='/sing-in' element={<Login />} />
+        <Route path='/sign-up' element={<Register setLogin={setLogin} />} />
+        <Route path='/sign-in' element={<Login setLogin={setLogin} />} />
       </Routes>
       <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </CurrentUserContext.Provider>
