@@ -1,0 +1,10 @@
+@media screen and (max-width: 767px) {
+  .header__profile_active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 18px;
+    padding: 40px 0;
+  }
+}

@@ -15,6 +15,11 @@
 @import url(./blocks/header/__info/header__info.css);
 @import url(./blocks/header/__email/header__email.css);
 @import url(./blocks/header/__link/_active/header__link_active.css);
+@import url(./blocks/header/__profile/header__profile.css);
+@import url(./blocks/header/__profile/_active/header__profile_active.css);
+@import url(./blocks/header/__burger/header__burger.css);
+@import url(./blocks/header/__burger/_disactive/header__burger_disactive.css);
+@import url(./blocks/header/__info/_active/header__info_active.css);
 /* profile */
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__content/profile__content.css);

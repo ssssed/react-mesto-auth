@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import burger from '../../images/burger.svg';
+import closeBtn from '../../images/closebutton.svg';
 import { getContent } from '../../utils/Auth';
 
 const Header = ({ isLogin, setLogin }) => {
   const location = useLocation();
   const [email, setEmail] = useState('');
+  const [isOpenBurger, setOpenBurger] = useState(false);
+  const [isBurger, setBurger] = useState(false);
   const navigate = useNavigate();
+  console.log(window.innerWidth);
   useEffect(() => {
     isLogin &&
       getContent(localStorage.getItem('jwt')).then((res) =>
@@ -25,11 +30,19 @@ const Header = ({ isLogin, setLogin }) => {
   const signIn = () => {
     navigate('/sign-in');
   };
+  const handleOpenBurger = () => {
+    setOpenBurger(!isOpenBurger);
+  };
+  const cheakHeaderProfile = () => {
+    if (isOpenBurger && isLogin) return 'header__profile_active';
+    else return '';
+  };
   return (
-    <header className='header'>
-      <img src={logo} alt='Логотип' className='header__img' />
-      <div className='header__info'>
-        <p className='header__email'>{isLogin && email}</p>
+    <>
+      <div className={`header__profile ${cheakHeaderProfile()}`}>
+        <p className='header__email' style={{ margin: '0' }}>
+          {isLogin && email}
+        </p>
         <button
           onClick={
             isLogin
@@ -39,6 +52,7 @@ const Header = ({ isLogin, setLogin }) => {
               : signIn
           }
           className={`header__link ${isLogin && 'header__link_active'}`}
+          style={{ margin: '0' }}
         >
           {isLogin
             ? 'Выйти'
@@ -47,7 +61,35 @@ const Header = ({ isLogin, setLogin }) => {
             : 'Войти'}
         </button>
       </div>
-    </header>
+      <header className='header'>
+        <img src={logo} alt='Логотип' className='header__img' />
+        <div className={`header__info ${!isLogin && 'header__info_active'}`}>
+          <p className='header__email'>{isLogin && email}</p>
+          <button
+            onClick={
+              isLogin
+                ? logOut
+                : location.pathname === '/sign-in'
+                ? signUp
+                : signIn
+            }
+            className={`header__link ${isLogin && 'header__link_active'}`}
+          >
+            {isLogin
+              ? 'Выйти'
+              : location.pathname === '/sign-in'
+              ? 'Регистрация'
+              : 'Войти'}
+          </button>
+        </div>
+        <img
+          src={isOpenBurger ? closeBtn : burger}
+          alt='Бургер меню'
+          className={`header__burger ${!isLogin && 'header__burger_disactive'}`}
+          onClick={handleOpenBurger}
+        />
+      </header>
+    </>
   );
 };
 

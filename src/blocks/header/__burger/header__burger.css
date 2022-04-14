@@ -1,0 +1,13 @@
+.header__burger {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .header__burger {
+    display: block;
+    margin-right: 28px;
+    align-self: flex-end;
+    width: 20px;
+    height: 20px;
+  }
+}
