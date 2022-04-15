@@ -98,17 +98,17 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    if (token) {
+    if (token || isLogin) {
       setLogin(true);
       setError(false);
       navigate('/');
+      Promise.all([api.getCards(), api.renderProfile()])
+        .then(([card, userData]) => {
+          setCards(card);
+          setCurrentUser(userData);
+        })
+        .catch((er) => console.error(er));
     }
-    Promise.all([api.getCards(), api.renderProfile()])
-      .then(([card, userData]) => {
-        setCards(card);
-        setCurrentUser(userData);
-      })
-      .catch((er) => console.error(er));
   }, []);
   return (
     <CurrentUserContext.Provider value={currentUser}>
