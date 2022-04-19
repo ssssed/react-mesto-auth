@@ -98,6 +98,7 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
+    token && setLogin(true);
     if (token || isLogin) {
       setLogin(true);
       setError(false);
