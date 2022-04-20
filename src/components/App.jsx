@@ -98,8 +98,7 @@ const App = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    token && setLogin(true);
-    if (token || isLogin) {
+    if (token) {
       setLogin(true);
       setError(false);
       navigate('/');
@@ -110,7 +109,7 @@ const App = () => {
         })
         .catch((er) => console.error(er));
     }
-  }, []);
+  }, [isLogin]);
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Header isLogin={isLogin} setLogin={setLogin} />
