@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b67b359a.css",
+    "main.js": "/static/js/main.1ccf0a76.js",
+    "static/js/787.5530211c.chunk.js": "/static/js/787.5530211c.chunk.js",
+    "static/media/Inter-Bold.svg": "/static/media/Inter-Bold.43e5cc93cc47675e04f6.svg",
+    "static/media/Inter-Regular.svg": "/static/media/Inter-Regular.196aca5c9f12ea039004.svg",
+    "static/media/Inter-Black.svg": "/static/media/Inter-Black.68f3e0195e9d3c02713f.svg",
+    "static/media/Inter-Bold.ttf": "/static/media/Inter-Bold.a73db89c43e44ca8f5e0.ttf",
+    "static/media/Inter-Black.ttf": "/static/media/Inter-Black.54c4088fddcfe5fabaca.ttf",
+    "static/media/Inter-Regular.ttf": "/static/media/Inter-Regular.9cd7588f47651215d52f.ttf",
+    "static/media/Inter-Black.woff2": "/static/media/Inter-Black.463e6997ceba5d345522.woff2",
+    "static/media/Inter-Regular.woff2": "/static/media/Inter-Regular.8359381c2fa3c5bd4150.woff2",
+    "static/media/Inter-Bold.woff": "/static/media/Inter-Bold.3023a97821a90ac0e907.woff",
+    "static/media/Inter-Black.woff": "/static/media/Inter-Black.a16b6c7cb18c08571707.woff",
+    "static/media/Inter-Regular.woff": "/static/media/Inter-Regular.3fb1ccc6a22807103b08.woff",
+    "static/media/Inter-Bold.woff2": "/static/media/Inter-Bold.eea665f0c1fa476b873e.woff2",
+    "static/media/logo.svg": "/static/media/logo.bbe2a6eafac19c3d031c272c424875ca.svg",
+    "static/media/like.svg": "/static/media/like.cbed5331d270056562b2.svg",
+    "index.html": "/index.html",
+    "static/media/error.svg": "/static/media/error.7c6a020bec681932a2af92e04114a848.svg",
+    "static/media/trash.svg": "/static/media/trash.ce3b64935accf9b8212e.svg",
+    "static/media/done.svg": "/static/media/done.1b6082f862eac35e2514460237d96ecc.svg",
+    "static/media/likeactive.svg": "/static/media/likeactive.35948469632d0421d697.svg",
+    "static/media/burger.svg": "/static/media/burger.a46d5c1c53c02d60fc8020a980d10651.svg",
+    "static/media/editbutton.svg": "/static/media/editbutton.af236f6cf67005f1d7aa.svg",
+    "static/media/editPhoto.svg": "/static/media/editPhoto.ae1a976ddb506239e9f0.svg",
+    "static/media/closebutton.svg": "/static/media/closebutton.039f1f5203f653b4bacde5e34ee2810b.svg",
+    "static/media/addbutton.svg": "/static/media/addbutton.bed8c136e13907f5eefb.svg",
+    "main.b67b359a.css.map": "/static/css/main.b67b359a.css.map",
+    "main.1ccf0a76.js.map": "/static/js/main.1ccf0a76.js.map",
+    "787.5530211c.chunk.js.map": "/static/js/787.5530211c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b67b359a.css",
+    "static/js/main.1ccf0a76.js"
+  ]
+}
